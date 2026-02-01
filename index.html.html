@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alquiler contadora de billetes + verificación antifalsos (Sevilla / España)</title>
+  <meta name="description" content="Alquila una contadora de billetes VEVOR (UV/MG, 1000 billetes/min) + verificación antifalsos con Safescan 155-SX. Ideal para operaciones en efectivo (inmuebles, coches, cierres de caja)." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111b2e;
+      --muted:#7f8aa3;
+      --text:#e7edf7;
+      --accent:#ffcc00;
+      --accent2:#8bd3ff;
+      --ok:#38d39f;
+      --danger:#ff6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,204,0,.18), transparent 60%),
+                  radial-gradient(900px 600px at 100% 0%, rgba(139,211,255,.16), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px;}
+
+    /* Header */
+    header{
+      position:sticky; top:0; backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,18,32,.78), rgba(11,18,32,.45));
+      border-bottom: 1px solid rgba(231,237,247,.08);
+      z-index:10;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:14px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
+    .badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; color:rgba(231,237,247,.9);
+      padding:7px 10px; border:1px solid rgba(231,237,247,.14); border-radius:999px; background:rgba(17,27,46,.7);
+    }
+    .dot{width:9px; height:9px; border-radius:999px; background:var(--ok); box-shadow:0 0 0 3px rgba(56,211,159,.12)}
+    .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;}
+    .links a{font-size:13px; color:rgba(231,237,247,.86); text-decoration:none; padding:8px 10px; border-radius:10px;}
+    .links a:hover{background:rgba(231,237,247,.06)}
+
+    /* Hero */
+    .hero{padding:28px 0 10px;}
+    .grid{
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:18px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns: 1fr;}
+      header{position:relative}
+    }
+    .h1{font-size: clamp(28px, 3.2vw, 46px); line-height:1.08; margin:0 0 10px;}
+    .sub{color:rgba(231,237,247,.82); margin:0 0 16px; font-size:15px;}
+    .highlights{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+    .pill{font-size:12px; padding:8px 10px; border-radius:999px; background:rgba(231,237,247,.06);
+      border:1px solid rgba(231,237,247,.12);
+    }
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 0;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; border:1px solid rgba(231,237,247,.14);
+      text-decoration:none; font-weight:700; font-size:14px;
+      background:rgba(17,27,46,.6);
+      box-shadow: var(--shadow);
+    }
+    .btn.primary{background: linear-gradient(135deg, rgba(255,204,0,.98), rgba(255,204,0,.72)); color:#1a1a1a; border:none;}
+    .btn.primary:hover{filter:brightness(1.02)}
+    .btn:hover{background:rgba(231,237,247,.08)}
+
+    /* Cards */
+    section{padding:18px 0;}
+    .card{
+      background: linear-gradient(180deg, rgba(17,27,46,.86), rgba(17,27,46,.62));
+      border:1px solid rgba(231,237,247,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card .pad{padding:16px;}
+    .card h2{margin:0 0 10px; font-size:18px;}
+    .muted{color:rgba(231,237,247,.75)}
+    .mini{font-size:12px; color:rgba(231,237,247,.70)}
+    .kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px;}
+    @media (max-width: 620px){.kpi{grid-template-columns:1fr}}
+    .kpi .box{padding:12px; border-radius:14px; background:rgba(231,237,247,.06); border:1px solid rgba(231,237,247,.10)}
+    .kpi .num{font-weight:900; font-size:18px}
+
+    .two{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
+    @media (max-width: 820px){.two{grid-template-columns:1fr}}
+
+    /* Feature list */
+    ul{margin:10px 0 0; padding:0 0 0 18px}
+    li{margin:6px 0}
+    .tag{display:inline-block; font-size:11px; padding:4px 8px; border-radius:999px; background:rgba(139,211,255,.14); border:1px solid rgba(139,211,255,.24); color:rgba(231,237,247,.92)}
+
+    /* Pricing */
+    .prices{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    @media (max-width: 860px){.prices{grid-template-columns:1fr}}
+    .price{
+      padding:16px; border-radius: var(--radius);
+      background: rgba(231,237,247,.06);
+      border:1px solid rgba(231,237,247,.12);
+      position:relative;
+    }
+    .price .label{font-weight:800;}
+    .price .val{font-size:28px; font-weight:900; margin:8px 0 2px;}
+    .price .val span{font-size:14px; font-weight:800; color:rgba(231,237,247,.85)}
+    .price .line{color:rgba(231,237,247,.74); font-size:13px; margin-top:10px}
+    .price.pop{outline:2px solid rgba(255,204,0,.65)}
+    .ribbon{
+      position:absolute; top:10px; right:10px; font-size:11px;
+      padding:6px 10px; border-radius:999px; background:rgba(255,204,0,.92); color:#1a1a1a; font-weight:900;
+    }
+
+    /* Form */
+    form{display:grid; gap:10px; margin-top:10px}
+    label{font-size:13px; color:rgba(231,237,247,.82)}
+    input, select, textarea{
+      width:100%; padding:12px 12px; border-radius:14px;
+      background:rgba(11,18,32,.55);
+      border:1px solid rgba(231,237,247,.14);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+    @media (max-width: 620px){.row{grid-template-columns:1fr}}
+    .calc{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:6px; padding:12px;
+      border-radius:14px; background:rgba(231,237,247,.06); border:1px solid rgba(231,237,247,.12)
+    }
+    .calc b{font-size:16px}
+
+    /* FAQ */
+    details{background:rgba(231,237,247,.05); border:1px solid rgba(231,237,247,.10); border-radius:14px; padding:12px}
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:800}
+
+    footer{padding:20px 0 40px; color:rgba(231,237,247,.72); font-size:12px}
+    .smallprint{color:rgba(231,237,247,.62); font-size:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand" aria-label="Marca">
+        <span style="display:inline-flex;width:34px;height:34px;border-radius:12px;background:rgba(255,204,0,.18);align-items:center;justify-content:center;border:1px solid rgba(255,204,0,.26)">💶</span>
+        <div>
+          <div style="font-size:14px">Alquiler contadora + antifalsos</div>
+          <div class="mini">VEVOR UV/MG + Safescan 155‑SX</div>
+        </div>
+      </div>
+      <div class="links" role="navigation" aria-label="Navegación">
+        <a href="#equipo">Equipo</a>
+        <a href="#precios">Precios</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#reserva">Reservar</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <div class="badge" title="Disponibilidad orientativa">
+            <span class="dot"></span>
+            Disponible bajo reserva • Entrega en mano
+          </div>
+          <h1 class="h1">Cuenta efectivo en minutos y reduce el riesgo de billetes falsos.</h1>
+          <p class="sub">Alquiler de <b>contadora VEVOR</b> con detección <b>UV/MG</b> (hasta <b>1.000 billetes/min</b>) + verificación antifalsos con <b>Safescan 155‑SX</b> en muestreo del <b>20%</b> (o más si lo deseas). Ideal para operaciones privadas: inmuebles, coches, cierres de caja y traspasos.</p>
+
+          <div class="highlights" aria-label="Ventajas">
+            <span class="pill">⚡ 1.000 billetes/min</span>
+            <span class="pill">🔎 UV/MG integrado</span>
+            <span class="pill">✅ Verificación Safescan 155‑SX</span>
+            <span class="pill">🤝 Entrega y explicación</span>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#reserva">Reservar ahora</a>
+            <a class="btn" id="btnWhats" href="#">Pedir por WhatsApp</a>
+          </div>
+
+          <p class="smallprint" style="margin-top:10px">
+            Nota: en España el pago en efectivo en compraventas puede estar sujeto a límites y obligaciones según el caso. Esta web ofrece alquiler de equipos; no es asesoramiento legal.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="pad">
+            <h2>En una operación típica</h2>
+            <p class="muted" style="margin:0">Ejemplo: 70.000 € en billetes de 50 € (1.400 billetes)</p>
+            <div class="kpi" role="list">
+              <div class="box" role="listitem">
+                <div class="mini">Conteo con VEVOR</div>
+                <div class="num">~2–4 min</div>
+              </div>
+              <div class="box" role="listitem">
+                <div class="mini">Muestreo 20% (155‑SX)</div>
+                <div class="num">~5–10 min</div>
+              </div>
+              <div class="box" role="listitem">
+                <div class="mini">Tiempo total</div>
+                <div class="num">~10–15 min</div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; padding:12px; border-radius:14px; border:1px dashed rgba(231,237,247,.20); background:rgba(11,18,32,.35)">
+              <div class="mini">Incluye</div>
+              <ul>
+                <li>Contadora VEVOR UV/MG + pantalla LED</li>
+                <li>Detector Safescan 155‑SX (automático y portátil)</li>
+                <li>Guía rápida (2 min) + soporte durante el alquiler</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipo" class="two">
+      <div class="card">
+        <div class="pad">
+          <h2>Contadora VEVOR <span class="tag">UV/MG</span></h2>
+          <ul>
+            <li>Conteo rápido: <b>hasta 1.000 billetes por minuto</b>.</li>
+            <li>Detección integrada: <b>UV</b> (ultravioleta) y <b>MG</b> (magnética).</li>
+            <li>Funciones útiles: <b>ADD</b> (suma de lotes), <b>BATCH</b> (lotes), pantalla LED.</li>
+            <li>Ideal para <b>fajos por denominación</b> (p. ej. todo 50 € en una pasada).</li>
+          </ul>
+          <p class="mini" style="margin-top:10px">*La detección integrada ayuda, pero para máxima seguridad se recomienda el doble control con Safescan.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <h2>Safescan 155‑SX <span class="tag">Verificación automática</span></h2>
+          <ul>
+            <li>Detector portátil que verifica billetes <b>uno a uno</b>.</li>
+            <li>Múltiples controles automáticos (según serie y configuración) para mayor fiabilidad.</li>
+            <li>Perfecto para <b>revisar aleatoriamente</b> una parte del total o el 100% si se desea.</li>
+          </ul>
+          <p class="mini" style="margin-top:10px">Muestreo estándar incluido: <b>20%</b>. Puedes pedir 30%, 50% o 100% (ajuste de precio según tiempo).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios">
+      <div class="card">
+        <div class="pad">
+          <h2>Precios de alquiler (equipo completo)</h2>
+          <p class="muted" style="margin-top:0">Incluye contadora VEVOR + verificación Safescan 155‑SX (muestreo 20%), explicación y soporte.</p>
+
+          <div class="prices" aria-label="Tarifas">
+            <div class="price">
+              <div class="label">1 día</div>
+              <div class="val">45 € <span>/ día</span></div>
+              <div class="line">Para operaciones puntuales (coche, traspaso, señal). Entrega en mano.</div>
+            </div>
+            <div class="price pop">
+              <div class="ribbon">Más pedido</div>
+              <div class="label">Fin de semana</div>
+              <div class="val">85 € <span>/ 2–3 días</span></div>
+              <div class="line">Ideal para compraventas con notaría y margen de seguridad.</div>
+            </div>
+            <div class="price">
+              <div class="label">Semana</div>
+              <div class="val">150 € <span>/ 7 días</span></div>
+              <div class="line">Cierres de caja, ferias, operaciones repetidas.</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="calc" aria-label="Fianza y extras">
+            <div>
+              <div class="mini">Fianza (depósito reembolsable)</div>
+              <b>350 €</b>
+            </div>
+            <div>
+              <div class="mini">Muestreo extra con Safescan</div>
+              <b>+10 € / cada +10%</b>
+            </div>
+            <div>
+              <div class="mini">Entrega/recogida a domicilio (opcional)</div>
+              <b>Según zona</b>
+            </div>
+          </div>
+
+          <p class="smallprint" style="margin-top:10px">
+            *El muestreo 20% ofrece una verificación robusta en la práctica, pero no sustituye un procedimiento bancario. Si buscas máxima tranquilidad, puedes solicitar verificación del 100%.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="two">
+      <div class="card">
+        <div class="pad">
+          <h2>Cómo funciona</h2>
+          <ol style="margin:10px 0 0; padding-left:18px">
+            <li><b>Reserva</b> fecha y duración.</li>
+            <li><b>Entrega en mano</b> (o a domicilio si se acuerda) + explicación rápida.</li>
+            <li><b>Conteo</b> con VEVOR (por fajos/denominación).</li>
+            <li><b>Verificación</b> con Safescan (muestreo 20% o lo que elijas).</li>
+            <li><b>Devolución</b> del equipo y devolución de la fianza si todo está OK.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <h2>Condiciones básicas</h2>
+          <ul>
+            <li>Se solicita <b>DNI</b> y firma de un <b>contrato sencillo</b>.</li>
+            <li>La <b>fianza</b> se devuelve al entregar el equipo en buen estado.</li>
+            <li>En caso de <b>pérdida, robo o no devolución</b>, el arrendatario responde del valor del equipo según contrato.</li>
+            <li>Uso responsable: el equipo es para <b>conteo/verificación</b>, no para manipulación de billetes.</li>
+          </ul>
+          <p class="mini">*Si el cliente reporta robo, se recomienda denuncia inmediata y aportar número de serie/fotos del equipo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserva" class="two">
+      <div class="card">
+        <div class="pad">
+          <h2>Reserva rápida</h2>
+          <p class="muted" style="margin-top:0">Rellena el formulario y te respondo con disponibilidad y condiciones.</p>
+
+          <form id="bookingForm">
+            <div class="row">
+              <div>
+                <label for="name">Nombre</label>
+                <input id="name" name="name" placeholder="Tu nombre" required />
+              </div>
+              <div>
+                <label for="phone">Teléfono / WhatsApp</label>
+                <input id="phone" name="phone" placeholder="Ej. 6XX XXX XXX" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="start">Fecha de inicio</label>
+                <input id="start" name="start" type="date" required />
+              </div>
+              <div>
+                <label for="duration">Duración</label>
+                <select id="duration" name="duration" required>
+                  <option value="day">1 día (45 €)</option>
+                  <option value="weekend">Fin de semana (85 €)</option>
+                  <option value="week">Semana (150 €)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="sample">Verificación Safescan (muestreo)</label>
+                <select id="sample" name="sample" required>
+                  <option value="20">20% (incluido)</option>
+                  <option value="30">30% (+10 €)</option>
+                  <option value="40">40% (+20 €)</option>
+                  <option value="50">50% (+30 €)</option>
+                  <option value="100">100% (consultar)</option>
+                </select>
+              </div>
+              <div>
+                <label for="city">Zona</label>
+                <input id="city" name="city" placeholder="Ej. Sevilla / Bormujos / Teatinos…" />
+              </div>
+            </div>
+
+            <div>
+              <label for="notes">Notas (opcional)</label>
+              <textarea id="notes" name="notes" placeholder="Ej. 70.000 € en billetes de 50, operación en notaría, horario…"></textarea>
+            </div>
+
+            <div class="calc" aria-live="polite">
+              <div>
+                <div class="mini">Precio estimado</div>
+                <b id="priceOut">45 €</b>
+              </div>
+              <div>
+                <div class="mini">Fianza</div>
+                <b>350 €</b>
+              </div>
+              <div>
+                <a class="btn primary" id="btnMail" href="#">Enviar solicitud</a>
+              </div>
+            </div>
+
+            <p class="mini">Al pulsar “Enviar solicitud” se abrirá tu correo con el mensaje preparado. También puedes usar WhatsApp.</p>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <h2>Preguntas frecuentes</h2>
+
+          <details open>
+            <summary>¿Cuánta seguridad da el muestreo del 20%?</summary>
+            <div class="muted" style="margin-top:8px">
+              Es un estándar práctico para reducir riesgos y detectar problemas evidentes. Si el importe es alto o quieres máxima tranquilidad, solicita 50% o 100%.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Sirve para billetes de 500 €?</summary>
+            <div class="muted" style="margin-top:8px">Sí, el equipo trabaja con euros; la verificación se realiza por billete con Safescan.</div>
+          </details>
+
+          <details>
+            <summary>¿Qué pasa si no se devuelve o se pierde el equipo?</summary>
+            <div class="muted" style="margin-top:8px">
+              Se aplica el contrato: la fianza cubre parte y el arrendatario responde por el valor del equipo si hay pérdida, robo o no devolución.
+            </div>
+          </details>
+
+          <details>
+            <summary>¿Hay entrega a domicilio?</summary>
+            <div class="muted" style="margin-top:8px">Sí, según zona y disponibilidad. También puedes recoger en mano.</div>
+          </details>
+
+          <div style="margin-top:14px" class="ctaRow">
+            <a class="btn" href="#precios">Ver precios</a>
+            <a class="btn" href="#" id="btnWhats2">WhatsApp</a>
+          </div>
+
+          <p class="smallprint" style="margin-top:12px">
+            Importante: si alguna entidad detecta billetes falsos, no deben ponerse de nuevo en circulación. Este servicio es para prevenir riesgos y mejorar la verificación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="card">
+        <div class="pad">
+          <div style="display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap">
+            <div>
+              <b>Contacto</b>
+              <div class="mini">Edita esta web y añade tu teléfono / email</div>
+            </div>
+            <div class="mini">
+              © <span id="year"></span> • Alquiler de equipos de conteo y verificación
+            </div>
+          </div>
+          <div class="smallprint" style="margin-top:10px">
+            Esta página es una plantilla. Sustituye el teléfono, email y ciudad. Puedes alojarla gratis en GitHub Pages o Netlify.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // === Configuración: cambia estos valores ===
+    const OWNER_CITY = 'Málaga (y alrededores)';
+    const OWNER_EMAIL = 'contacto@alquilercontadora.es';
+    const OWNER_WHATS = '34695400174'; // ej: 34600111222
+
+    const PRICES = {
+      day: 45,
+      weekend: 85,
+      week: 150
+    };
+    const EXTRA_PER_10 = 10; // +10€ por cada +10% sobre 20%
+
+    // === UI ===
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    const duration = document.getElementById('duration');
+    const sample = document.getElementById('sample');
+    const priceOut = document.getElementById('priceOut');
+
+    function calcPrice(){
+      const base = PRICES[duration.value] ?? PRICES.day;
+      const s = parseInt(sample.value, 10);
+      let extra = 0;
+      if (s > 20 && s < 100){
+        extra = ((s - 20) / 10) * EXTRA_PER_10;
+      }
+      if (s === 100){
+        // 100% suele ser muy dependiente del volumen; dejamos en consulta.
+        priceOut.textContent = 'Consultar';
+        return { base, extra: null, total: null };
+      }
+      const total = base + extra;
+      priceOut.textContent = total + ' €';
+      return { base, extra, total };
+    }
+
+    duration.addEventListener('change', calcPrice);
+    sample.addEventListener('change', calcPrice);
+    calcPrice();
+
+    // WhatsApp links
+    function buildWhatsMessage(){
+      const name = document.getElementById('name').value || 'Hola';
+      const phone = document.getElementById('phone').value || '';
+      const start = document.getElementById('start').value || '';
+      const city = document.getElementById('city').value || '';
+      const notes = document.getElementById('notes').value || '';
+      const durLabel = duration.options[duration.selectedIndex].text;
+      const sampleLabel = sample.options[sample.selectedIndex].text;
+      const est = priceOut.textContent;
+
+      return `Hola, soy ${name}. Quiero reservar el alquiler de la contadora VEVOR + verificación Safescan.\n`+
+             `• Fecha inicio: ${start}\n`+
+             `• Duración: ${durLabel}\n`+
+             `• Verificación: ${sampleLabel}\n`+
+             `• Zona: ${city}\n`+
+             `• Teléfono: ${phone}\n`+
+             `• Precio estimado: ${est}\n`+
+             `Notas: ${notes}`;
+    }
+
+    function setWhatsLinks(){
+      const msg = encodeURIComponent(buildWhatsMessage());
+      const url = `https://wa.me/${OWNER_WHATS}?text=${msg}`;
+      const btn1 = document.getElementById('btnWhats');
+      const btn2 = document.getElementById('btnWhats2');
+      btn1.href = url;
+      btn2.href = url;
+      btn1.target = '_blank';
+      btn2.target = '_blank';
+    }
+
+    // Email link
+    function setMailLink(){
+      const name = document.getElementById('name').value || '';
+      const phone = document.getElementById('phone').value || '';
+      const start = document.getElementById('start').value || '';
+      const city = document.getElementById('city').value || '';
+      const notes = document.getElementById('notes').value || '';
+      const durLabel = duration.options[duration.selectedIndex].text;
+      const sampleLabel = sample.options[sample.selectedIndex].text;
+      const est = priceOut.textContent;
+
+      const subject = encodeURIComponent('Solicitud de alquiler contadora + antifalsos');
+      const body = encodeURIComponent(
+        `Hola,\n\nQuiero reservar el alquiler del equipo (VEVOR UV/MG + Safescan 155-SX).\n\n`+
+        `Nombre: ${name}\n`+
+        `Teléfono: ${phone}\n`+
+        `Fecha inicio: ${start}\n`+
+        `Duración: ${durLabel}\n`+
+        `Verificación: ${sampleLabel}\n`+
+        `Zona: ${city}\n`+
+        `Precio estimado: ${est}\n\n`+
+        `Notas: ${notes}\n\nGracias.`
+      );
+
+      const mailto = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
+      const btnMail = document.getElementById('btnMail');
+      btnMail.href = mailto;
+    }
+
+    // Update links whenever inputs change
+    document.getElementById('bookingForm').addEventListener('input', () => {
+      calcPrice();
+      setWhatsLinks();
+      setMailLink();
+    });
+
+    // Initial links
+    setWhatsLinks();
+    setMailLink();
+
+    // Small helper: show city in footer if wanted
+    // (Optional: you can add a dedicated element and inject OWNER_CITY)
+  </script>
+</body>
+</html>
